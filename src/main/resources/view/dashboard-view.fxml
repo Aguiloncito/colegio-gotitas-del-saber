@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" styleClass="mainFxmlClass" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.edu.ingsoft.colegio.gotitas.controller.DashboardController">
+   <children>
+      <GridPane alignment="CENTER" prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.77777099609375" minWidth="10.0" prefWidth="46.33333079020181" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="695.5555826822916" minWidth="10.0" prefWidth="695.5555826822916" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="636.6666768391926" minWidth="10.0" prefWidth="55.77775065104163" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="160.7777862548828" minHeight="0.0" prefHeight="64.33333683013916" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="432.0" minHeight="10.0" prefHeight="372.3333298365275" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="91.77774047851562" minHeight="0.0" prefHeight="51.77777099609375" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane prefHeight="384.0" prefWidth="704.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TableView fx:id="tvEstudiantes" layoutX="5.0" layoutY="4.0" prefHeight="375.0" prefWidth="693.0">
+                    <columns>
+                      <TableColumn fx:id="tvColumnIdEstudiante" prefWidth="54.000001430511475" text="Id" />
+                      <TableColumn fx:id="tvColumnNombreEstudiante" prefWidth="70.66656875610352" text="Nombre" />
+                        <TableColumn fx:id="tvColumnApellidoEstudiante" prefWidth="92.6666259765625" text="Apellido" />
+                        <TableColumn fx:id="tvColumnCorreo" prefWidth="117.33323669433594" text="Correo electronico" />
+                        <TableColumn fx:id="tvColumnSeccion" prefWidth="76.666748046875" text="Seccion" />
+                        <TableColumn fx:id="tvColumnCurso" prefWidth="59.9998779296875" text="Curso" />
+                        <TableColumn fx:id="tvColumnNombreDocente" prefWidth="114.66665649414062" text="Nombre Docente" />
+                        <TableColumn fx:id="tvColumnApellidoDocente" prefWidth="124.6666259765625" text="Apellido Docente" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

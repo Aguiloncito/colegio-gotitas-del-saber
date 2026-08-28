@@ -10,9 +10,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import main.java.edu.ingsoft.colegio.gotitas.controller.DashboardController;
 import main.java.edu.ingsoft.colegio.gotitas.controller.LoginController;
 import main.java.edu.ingsoft.colegio.gotitas.repository.AuthRepository;
+import main.java.edu.ingsoft.colegio.gotitas.repository.EstudianteRepository;
 import main.java.edu.ingsoft.colegio.gotitas.service.AuthService;
+import main.java.edu.ingsoft.colegio.gotitas.service.DashBoardService;
 
 /**
  *
@@ -51,6 +54,29 @@ public class SceneManager {
         primaryStage.centerOnScreen();
         primaryStage.show();
     }
+    //implementa el cambio de scene hacia el dashboard
+    public void showDashBoardView()throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_PATH+"dashboard-view.fxml"));
+        loader.setControllerFactory(clazz -> {
+            if(clazz == DashboardController.class){
+                EstudianteRepository estudianteRepository = new EstudianteRepository();
+                DashBoardService dasboardService = new DashBoardService(estudianteRepository);
+               return new DashboardController(dasboardService, this);
+            }
+            try{
+                return clazz.getDeclaredConstructor().newInstance();
+            }catch(Exception e){
+                throw new RuntimeException("error al crear el constructor" + e.getMessage());
+            }
+        }
+        );
+        Parent root = loader.load();
+        Scene scene = new Scene(root , 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.centerOnScreen();
+        primaryStage.show();
+    }
+    
     
     //venta modal, para mostrar alerta
     

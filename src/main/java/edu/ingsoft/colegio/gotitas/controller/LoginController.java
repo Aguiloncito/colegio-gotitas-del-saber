@@ -50,6 +50,7 @@ public class LoginController implements Initializable {
             LoginResponse responseService = authService.login(new LoginRequest(txtFieldEmail.getText(), txtFieldPass.getText()));
             LoginResponse userLogged = new LoginResponse(responseService.getNombre(), responseService.getApellido());
             sceneManager.showInfoAlert("Bienvenido a gotitas del Saber", "Inicio exitoso", "Bienvenido: "+ userLogged.getNombre(), Alert.AlertType.INFORMATION);
+            sceneManager.showDashBoardView();
             }catch(RuntimeException e){
                 sceneManager.showInfoAlert("Datos incorrectos", "Revisa tu información", "Intenta de nuevo", Alert.AlertType.INFORMATION);
             }
