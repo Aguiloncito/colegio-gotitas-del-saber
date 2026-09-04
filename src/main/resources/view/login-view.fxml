@@ -32,7 +32,7 @@
                   <Label layoutX="207.0" layoutY="178.0" text="Correo" />
                   <Label layoutX="207.0" layoutY="242.0" text="Contraseña" />
                   <Button layoutX="166.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleLogin" text="Iniciar Sesion" />
-                  <Button layoutX="305.0" layoutY="308.0" mnemonicParsing="false" text="Registrarse" />
+                  <Button fx:id="handleRegistrarse" layoutX="305.0" layoutY="308.0" mnemonicParsing="false" text="Registrarse" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="230.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/png-001.png" />
