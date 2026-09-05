@@ -93,21 +93,27 @@ public class SceneManager {
     }
     
     public void showRegistroView() throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_PATH + "registro-view.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_PATH + "registro-view.fxml"));
 
-        loader.setControllerFactory(
-                clazz -> {
-                    if (clazz == RegistroController.class) {
-                        RegistroRepository registroRepository = new RegistroRepository();
-                        RegistroViewService registroService = new RegistroViewService(registroRepository);
-                        return new RegistroController(registroService, this);
-                    }
-                    try {
-                        return clazz.getDeclaredConstructor().newInstance();
-                    } catch (Exception e) {
-                        throw new RuntimeException("error al crear el constructor" + e.getMessage());
-                    }
+    loader.setControllerFactory(
+            clazz -> {
+                if (clazz == RegistroController.class) {
+                    RegistroRepository registroRepository = new RegistroRepository();
+                    RegistroViewService registroService = new RegistroViewService(registroRepository);
+                    return new RegistroController(registroService, this);
                 }
-        );
-    }
+                try {
+                    return clazz.getDeclaredConstructor().newInstance();
+                } catch (Exception e) {
+                    throw new RuntimeException("error al crear el constructor" + e.getMessage());
+                }
+            }
+    );
+
+    Parent root = loader.load();
+    Scene scene = new Scene(root, 600, 400);
+    primaryStage.setScene(scene);
+    primaryStage.centerOnScreen();
+    primaryStage.show();
+}
 }
