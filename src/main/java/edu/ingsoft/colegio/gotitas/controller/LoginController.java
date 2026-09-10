@@ -56,4 +56,8 @@ public class LoginController implements Initializable {
             }
         }
     }
+     public void handleRegistrarse() throws Exception {
+        sceneManager.showRegistroView();
+    }
+
 }

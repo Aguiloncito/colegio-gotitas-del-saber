@@ -12,10 +12,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import main.java.edu.ingsoft.colegio.gotitas.controller.DashboardController;
 import main.java.edu.ingsoft.colegio.gotitas.controller.LoginController;
+import main.java.edu.ingsoft.colegio.gotitas.controller.RegistroController;
 import main.java.edu.ingsoft.colegio.gotitas.repository.AuthRepository;
 import main.java.edu.ingsoft.colegio.gotitas.repository.EstudianteRepository;
+import main.java.edu.ingsoft.colegio.gotitas.repository.RegistroRepository;
 import main.java.edu.ingsoft.colegio.gotitas.service.AuthService;
 import main.java.edu.ingsoft.colegio.gotitas.service.DashBoardService;
+import main.java.edu.ingsoft.colegio.gotitas.service.RegistroViewService;
 
 /**
  *
@@ -88,4 +91,29 @@ public class SceneManager {
     alert.setHeaderText(head);
     alert.showAndWait();
     }
+    
+    public void showRegistroView() throws Exception {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource(FXML_PATH + "registro-view.fxml"));
+
+    loader.setControllerFactory(
+            clazz -> {
+                if (clazz == RegistroController.class) {
+                    RegistroRepository registroRepository = new RegistroRepository();
+                    RegistroViewService registroService = new RegistroViewService(registroRepository);
+                    return new RegistroController(registroService, this);
+                }
+                try {
+                    return clazz.getDeclaredConstructor().newInstance();
+                } catch (Exception e) {
+                    throw new RuntimeException("error al crear el constructor" + e.getMessage());
+                }
+            }
+    );
+
+    Parent root = loader.load();
+    Scene scene = new Scene(root, 600, 400);
+    primaryStage.setScene(scene);
+    primaryStage.centerOnScreen();
+    primaryStage.show();
+}
 }
