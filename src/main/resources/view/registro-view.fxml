@@ -25,8 +25,10 @@
       </AnchorPane>
       <VBox layoutX="174.0" layoutY="111.0" prefHeight="300.0" prefWidth="238.0" spacing="4.0">
          <children>
-            <Label prefHeight="18.0" prefWidth="166.0" text="Nombre de Usuario" />
-            <TextField fx:id="txtFieldUsuario" />
+            <Label prefHeight="18.0" prefWidth="166.0" text="Correo" />
+            <TextField fx:id="txtFieldCorreo" />
+            <Label text="ID Docente (solo si el rol es Docente)" />
+            <TextField fx:id="txtFieldIdDocente" />
             <Label text="Contraseña" />
             <TextField fx:id="txtFieldPass" />
             <Label text="Rol" />

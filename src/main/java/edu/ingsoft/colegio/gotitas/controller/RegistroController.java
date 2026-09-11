@@ -27,7 +27,9 @@ public class RegistroController implements Initializable {
     private final SceneManager sceneManager;
 
     @FXML
-    private TextField txtFieldUsuario;
+    private TextField txtFieldCorreo;
+    @FXML
+    private TextField txtFieldIdDocente;
     @FXML
     private TextField txtFieldPass;
     @FXML
@@ -46,17 +48,18 @@ public class RegistroController implements Initializable {
 
     //metodo para registrar
     public void handleRegistrar() throws Exception {
-        String usuario = txtFieldUsuario.getText();
+        String correo = txtFieldCorreo.getText();
+        String idDocente = txtFieldIdDocente.getText();
         String pass = txtFieldPass.getText();
         String rol = comboRol.getValue();
 
-        if (usuario == null || usuario.isEmpty()
+        if (correo == null || correo.isEmpty()
                 || pass == null || pass.isEmpty()
                 || rol == null || rol.isEmpty()) {
             sceneManager.showInfoAlert("Campos faltantes", "Revisar información", "Uno o mas campos están vacios", Alert.AlertType.CONFIRMATION);
         } else {
             try {
-                RegistroRequest request = new RegistroRequest(usuario, pass, rol);
+                RegistroRequest request = new RegistroRequest(correo, pass, rol, idDocente);
                 registroService.registrar(request);
                 sceneManager.showInfoAlert("Registro exitoso", "Usuario creado", "El usuario fue registrado correctamente", Alert.AlertType.INFORMATION);
                 sceneManager.showLoginView();

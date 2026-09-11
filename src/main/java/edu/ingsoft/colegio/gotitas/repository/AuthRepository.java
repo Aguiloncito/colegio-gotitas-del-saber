@@ -19,7 +19,7 @@ public class AuthRepository {
     private boolean sqlStatus = false;
     //constructor
     public LoginResponse findUserByEmail(LoginRequest loginRequest)throws SQLException{
-        String sql = "select d.nombre, d.apellido, u.contraseña_hash from usuarios as u" +
+        String sql = "select d.nombre, d.apellido, u.contrasena_hash from usuarios as u" +
             " right join docentes as d" +
             " on d.id_docente = u.id_docente" +
             " where email = ? ";
@@ -27,7 +27,7 @@ public class AuthRepository {
             pstm.setString(1, loginRequest.getEmail());
             ResultSet rs = pstm.executeQuery();
             if(rs.next()){
-            return new LoginResponse(rs.getString("nombre"),rs.getString("apellido"),rs.getString("contraseña_hash"));
+            return new LoginResponse(rs.getString("nombre"),rs.getString("apellido"),rs.getString("contrasena_hash"));
             }
         }catch(SQLException e){
             System.out.println("Error al encontrar el EMAIL " + e.getMessage());
