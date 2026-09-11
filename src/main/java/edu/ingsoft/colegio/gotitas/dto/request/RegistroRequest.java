@@ -9,18 +9,20 @@ package main.java.edu.ingsoft.colegio.gotitas.dto.request;
  * @author PC
  */
 public class RegistroRequest {
-    private final String nombreUsuario;
+    private final String correoElectronico;
     private final String contrasena;
     private final String rol;
+    private final String idDocente;
 
-    public RegistroRequest(String nombreUsuario, String contrasena, String rol) {
-        this.nombreUsuario = nombreUsuario;
+    public RegistroRequest(String correoElectronico, String contrasena, String rol, String idDocente) {
+        this.correoElectronico = correoElectronico;
         this.contrasena = contrasena;
         this.rol = rol;
+        this.idDocente = idDocente;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
     public String getContrasena() {
@@ -29,5 +31,9 @@ public class RegistroRequest {
 
     public String getRol() {
         return rol;
+    }
+
+    public String getIdDocente() {
+        return idDocente;
     }
 }

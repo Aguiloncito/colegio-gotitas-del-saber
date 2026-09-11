@@ -9,17 +9,17 @@ package main.java.edu.ingsoft.colegio.gotitas.dto.response;
  * @author PC
  */
 public class RegistroResponse {
-    
-    private final String nombreUsuario;
+
+    private final String correoElectronico;
     private final String rol;
 
-    public RegistroResponse(String nombreUsuario, String rol) {
-        this.nombreUsuario = nombreUsuario;
+    public RegistroResponse(String correoElectronico, String rol) {
+        this.correoElectronico = correoElectronico;
         this.rol = rol;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
     public String getRol() {
