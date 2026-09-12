@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/docente-view.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.edu.ingsoft.colegio.gotitas.controller.DocenteController">
+   <top>
+      <VBox styleClass="header-container" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="header-title" text="Panel de Control - Vista Docente" />
+            <HBox spacing="15.0">
+               <children>
+                  <HBox spacing="5.0">
+                     <children>
+                        <Label styleClass="header-label" text="Docente:" />
+                        <Label fx:id="lblDocenteNombre" styleClass="header-value" text="---" />
+                     </children>
+                  </HBox>
+                  <HBox spacing="5.0">
+                     <children>
+                        <Label styleClass="header-label" text="Correo:" />
+                        <Label fx:id="lblDocenteCorreo" styleClass="header-value" text="---" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="section-title" text="Estudiantes Asignados" />
+            <TableView fx:id="tblEstudiantes" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="colId" prefWidth="100.0" text="ID Estudiante" />
+                  <TableColumn fx:id="colNombre" prefWidth="120.0" text="Nombre" />
+                  <TableColumn fx:id="colApellido" prefWidth="120.0" text="Apellido" />
+                  <TableColumn fx:id="colCurso" prefWidth="100.0" text="Curso" />
+                  <TableColumn fx:id="colSeccion" prefWidth="80.0" text="Sección" />
+                  <TableColumn fx:id="colTareas" prefWidth="90.0" text="Nota Tareas" />
+                  <TableColumn fx:id="colExamenes" prefWidth="90.0" text="Nota Exámenes" />
+                  <TableColumn fx:id="colNotaFinal" prefWidth="90.0" text="Nota Final" />
+               </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
+   </center>
+   <right>
+      <VBox prefWidth="280.0" spacing="10.0" styleClass="side-panel" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="section-title" text="Gestión de Estudiantes y Notas" />
+            
+            <Label text="ID Estudiante:" />
+            <TextField fx:id="txtIdEstudiante" promptText="Ej. EST-001" />
+            
+            <Label text="Nombre Completo:" />
+            <TextField fx:id="txtNombreEstudiante" promptText="Ej. Juan Pérez" />
+            
+            <Label text="Nota Tareas (0-100):" />
+            <TextField fx:id="txtNotaTareas" promptText="Ej. 85.0" />
+            
+            <Label text="Nota Exámenes (0-100):" />
+            <TextField fx:id="txtNotaExamenes" promptText="Ej. 90.0" />
+            
+            <VBox spacing="8.0" styleClass="button-container">
+               <children>
+                  <Button maxWidth="Infinity" onAction="#handleGuardarEstudiante" styleClass="btn, btn-primary" text="Guardar Estudiante" />
+                  <Button maxWidth="Infinity" onAction="#handleGuardarNota" styleClass="btn, btn-primary" text="Guardar Nota" />
+                  <Button maxWidth="Infinity" onAction="#handleActualizarNota" styleClass="btn, btn-success" text="Actualizar Nota" />
+                  <Button maxWidth="Infinity" onAction="#handleEliminarEstudiante" styleClass="btn, btn-danger" text="Eliminar Estudiante" />
+                  <Button maxWidth="Infinity" onAction="#handleLimpiar" styleClass="btn, btn-secondary" text="Limpiar Campos" />
+                  <Button maxWidth="Infinity" onAction="#handleRegresar" styleClass="btn, btn-secondary" text="Regresar" />
+               </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </VBox>
+   </right>
+</BorderPane>
